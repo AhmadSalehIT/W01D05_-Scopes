@@ -227,3 +227,143 @@ accountOne("withdraw", 10); // => 110*/
 accountTwo("withdraw", 100); // => 300
 accountTwo("deposit", 50); // => 350
 accountTwo("withdraw", 500); // => "insufficient funds, current balance: 350"*/
+
+
+
+//----------------------------------------------------------------------------
+//Extra Practice
+
+//Q1
+let maxValue = 5;
+let minValue = 5;
+const minMax = function (number) {
+
+
+ if(number >= maxValue)
+ {
+  maxValue =number;
+
+ }
+
+ if(number <= minValue)
+ {
+  minValue =number;
+
+ }
+ 
+
+    return "the maximum number is: "+ maxValue+" and the minimum number is " + minValue;
+};
+/*
+minMax(5); // => "the maximum number is: 5 and the minimum number is 5"
+minMax(2); // => "the maximum number is: 5 and the minimum number is 2"
+minMax(3); // => "the maximum number is: 5 and the minimum number is 2"
+minMax(7); // => "the maximum number is: 7 and the minimum number is 2"
+minMax(0); // => "the maximum number is: 7 and the minimum number is 0"*/
+
+
+
+//Q2
+let won=0;
+let lost=0;
+const randomMove = function () {
+  let num =  Math.round(Math.random() * 2);
+  if(num === 0 )
+  return "rock";
+  else  if(num === 1 )
+  return "paper";
+  else  if(num === 2 )
+  return "scissors";
+};
+const rockPaperScissors = function (move) {
+   
+  const _randomMove = randomMove();
+  
+  if((move==='rock' && _randomMove ==='scissors') || (move==='paper' && _randomMove ==='rock') || (move==='scissors' && _randomMove ==='paper'))
+     { won+=1;}
+  else if((_randomMove==='rock' && move ==='scissors') || (_randomMove==='paper' && move ==='rock') || (_randomMove==='scissors' && move ==='paper'))
+   {lost+=1;}
+
+   return "Won: " +won+ ", Lost:"+lost;
+
+  };
+
+  /*
+  rockPaperScissors("rock"); // => "Won: 1, Lost:0"
+rockPaperScissors("rock"); // => "Won: 1, Lost:1"
+rockPaperScissors("paper"); // => "Won: 1, Lost:2"
+  */
+
+
+//Q3
+
+  const rockPaperScissors2 = function (move) {
+   
+    const _randomMove = randomMove();
+    if(won === 5 || lost===5)
+  {
+    won=0;
+    lost=0;
+  } 
+    if((move==='rock' && _randomMove ==='scissors') || (move==='paper' && _randomMove ==='rock') || (move==='scissors' && _randomMove ==='paper'))
+       { won+=1;}
+    else if((_randomMove==='rock' && move ==='scissors') || (_randomMove==='paper' && move ==='rock') || (_randomMove==='scissors' && move ==='paper'))
+     {lost+=1;}
+  
+     return "Won: " +won+ ", Lost:"+lost;
+  
+    };
+   
+
+    //Q4
+    const rockPaperScissors3 = function (move,reset) {
+   
+      const _randomMove = randomMove();
+      if( move==="" && reset)
+    {
+      won=0;
+      lost=0;
+      return "the game has been reset";
+    } 
+      if((move==='rock' && _randomMove ==='scissors') || (move==='paper' && _randomMove ==='rock') || (move==='scissors' && _randomMove ==='paper'))
+         { won+=1;}
+      else if((_randomMove==='rock' && move ==='scissors') || (_randomMove==='paper' && move ==='rock') || (_randomMove==='scissors' && move ==='paper'))
+       {lost+=1;}
+    
+       return "Won: " +won+ ", Lost:"+lost;
+    
+      };
+     
+
+
+//Q5
+
+let status=1;
+      const randomMove2 = function () {
+        let num ;
+        if(status ===1)
+        num=  Math.round(Math.random() * 2);
+        else
+        num=  Math.round(Math.random() * 3);
+        if(num === 0 )
+        return "rock";
+        else  if(num === 1 )
+        return "paper";
+        else  if(num === 2 )
+        return "scissors";
+      };
+      const rockPaperScissors4 = function (move) {
+   
+        const _randomMove = randomMove2();
+        
+        if((move==='rock' && _randomMove ==='scissors') || (move==='paper' && _randomMove ==='rock') || (move==='scissors' && _randomMove ==='paper'))
+           { status =1;
+             won+=1;
+            }
+        else if((_randomMove==='rock' && move ==='scissors') || (_randomMove==='paper' && move ==='rock') || (_randomMove==='scissors' && move ==='paper'))
+         {status =0;
+           lost+=1;}
+      
+         return "Won: " +won+ ", Lost:"+lost;
+      
+        };
